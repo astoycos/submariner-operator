@@ -16,20 +16,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package utils
+package reporter
 
 import (
 	"fmt"
 
-	"github.com/submariner-io/cloud-prepare/pkg/api"
 	"github.com/submariner-io/submariner-operator/internal/cli"
+	"github.com/submariner-io/submariner-operator/pkg/eventreporter"
 )
 
 type cliReporter struct {
 	status *cli.Status
 }
 
-func NewCLIReporter() api.Reporter {
+func NewCLIReporter() eventreporter.Reporter {
 	return &cliReporter{status: cli.NewStatus()}
 }
 
@@ -41,14 +41,20 @@ func (r *cliReporter) Succeeded(message string, args ...interface{}) {
 	if message != "" {
 		r.status.QueueSuccessMessage(fmt.Sprintf(message, args...))
 	}
-
-	r.status.End(cli.Success)
 }
 
-func (r *cliReporter) Failed(err ...error) {
-	if len(err) > 0 {
-		r.status.QueueFailureMessage(err[0].Error())
+func (r *cliReporter) Warned(message string) {
+	if message != "" {
+		r.status.QueueWarningMessage(message)
 	}
+}
 
-	r.status.End(cli.Failure)
+func (r *cliReporter) Failed(message string) {
+	if message != "" {
+		r.status.QueueFailureMessage(message)
+	}
+}
+
+func (r *cliReporter) EndedWith(err error) {
+	r.status.End(cli.CheckForError(err))
 }

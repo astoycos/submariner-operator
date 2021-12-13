@@ -21,8 +21,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/submariner-io/submariner-operator/pkg/internal/env"
-	"github.com/submariner-io/submariner-operator/pkg/internal/log"
+	"github.com/submariner-io/submariner-operator/internal/env"
+	"github.com/submariner-io/submariner-operator/internal/log"
 )
 
 type Result int
@@ -166,7 +166,7 @@ func (s *Status) QueueFailureMessage(message string) {
 	s.failureQueue = append(s.failureQueue, message)
 }
 
-// QueuewarningMessage queues up a message, which will be displayed once
+// QueueWarningMessage queues up a message, which will be displayed once
 // the status ends (using the warning format).
 func (s *Status) QueueWarningMessage(message string) {
 	s.warningQueue = append(s.warningQueue, message)

@@ -29,13 +29,14 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	submariner "github.com/submariner-io/submariner-operator/api/submariner/v1alpha1"
+	"github.com/submariner-io/submariner-operator/internal/cli"
 	"github.com/submariner-io/submariner-operator/internal/image"
+	reporter "github.com/submariner-io/submariner-operator/internal/reporter"
 	"github.com/submariner-io/submariner-operator/internal/restconfig"
 	"github.com/submariner-io/submariner-operator/pkg/broker"
 	submarinerclientset "github.com/submariner-io/submariner-operator/pkg/client/clientset/versioned"
 	"github.com/submariner-io/submariner-operator/pkg/discovery/globalnet"
 	"github.com/submariner-io/submariner-operator/pkg/discovery/network"
-	"github.com/submariner-io/submariner-operator/pkg/internal/cli"
 	"github.com/submariner-io/submariner-operator/pkg/subctl/cmd/utils"
 	"github.com/submariner-io/submariner-operator/pkg/subctl/datafile"
 	"github.com/submariner-io/submariner-operator/pkg/subctl/operator/brokersecret"
@@ -262,10 +263,15 @@ func joinSubmarinerCluster(subctlData *datafile.SubctlData) {
 
 	status.Start("Deploying the Submariner operator")
 
+	// statusReporter are to match submarinerop.Ensure argument requirements.
+	statusReporter := reporter.NewCLIReporter()
+	statusReporter.Started("Deploying the Submariner operator")
+
 	operatorImage, err := image.ForOperator(imageVersion, repository, imageOverrideArr)
 	utils.ExitOnError("Error overriding Operator Image", err)
-	err = submarinerop.Ensure(status, clientConfig, OperatorNamespace, operatorImage, operatorDebug)
+	err = submarinerop.Ensure(statusReporter, clientConfig, OperatorNamespace, operatorImage, operatorDebug)
 	status.End(cli.CheckForError(err))
+	statusReporter.EndedWith(err)
 	utils.ExitOnError("Error deploying the operator", err)
 
 	status.Start("Creating SA for cluster")

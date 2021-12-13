@@ -38,8 +38,7 @@ var deployBroker = &cobra.Command{
 	Use:   "deploy-broker",
 	Short: "Deploys the broker",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("deployBroker called")
-		err := deploy.Broker(&deployflags, restConfigProducer)
+		err := deploy.Broker(&deployflags, restConfigProducer, statusreporter())
 		exit.OnError("Error deploying Broker", err)
 	},
 }
