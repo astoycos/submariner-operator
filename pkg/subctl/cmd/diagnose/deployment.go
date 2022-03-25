@@ -127,7 +127,7 @@ func checkPods(cluster *cmd.Cluster) bool {
 
 	// Check if globalnet components are deployed and running if enabled
 	if cluster.Submariner.Spec.GlobalCIDR != "" {
-		checkDaemonset(cluster.KubeClient, cmd.OperatorNamespace, "submariner-globalnet", status)
+		checkDeployment(cluster.KubeClient, cmd.OperatorNamespace, "submariner-globalnet", status)
 	}
 
 	checkPodsStatus(cluster.KubeClient, cmd.OperatorNamespace, status)

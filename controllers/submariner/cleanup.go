@@ -67,6 +67,13 @@ func (r *Reconciler) runComponentCleanup(ctx context.Context, instance *operator
 			},
 		},
 		{
+			Resource:          newDeployment(names.GlobalnetComponent, instance.Namespace),
+			UninstallResource: newGlobalnetDeployment(instance, names.AppendUninstall(names.GlobalnetComponent)),
+			CheckInstalled: func() bool {
+				return instance.Spec.GlobalCIDR != ""
+			},
+		},
+		{
 			Resource: newDeployment(names.NetworkPluginSyncerComponent, instance.Namespace),
 			UninstallResource: newNetworkPluginSyncerDeployment(instance, clusterNetwork,
 				names.AppendUninstall(names.NetworkPluginSyncerComponent)),
