@@ -228,6 +228,8 @@ github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6r
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d/go.mod h1:6QX/PXZ00z/TKoufEY6K/a0k6AhaJrQKdFe6OfVXsa4=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
+github.com/billy99/submariner v0.12.0-m1.0.20220330162056-603344f69bce h1:93gdisu3pZBq6ydgV5iJ/vcF1rCX2rDQLQXMy4tNpAE=
+github.com/billy99/submariner v0.12.0-m1.0.20220330162056-603344f69bce/go.mod h1:bPvaBxns9xmA8PM+OUT/DYMgwR6efLjle1M+XzMWCLc=
 github.com/bitly/go-hostpool v0.0.0-20171023180738-a3a6125de932/go.mod h1:NOuUCSz6Q9T7+igc/hlvDOUdtWKryOrtFyIVABv/p7k=
 github.com/bitly/go-simplejson v0.5.0/go.mod h1:cXHtHw4XUPsvGaxgjIAn8PhEWG9NfngEKAMDJEczWVA=
 github.com/bketelsen/crypt v0.0.3-0.20200106085610-5cbc8cc4026c/go.mod h1:MKsuJmJgSg28kpZDP6UIiPt0e0Oz0kqKNGyRaWEPv84=
@@ -1379,8 +1381,6 @@ github.com/submariner-io/shipyard v0.12.0-m3/go.mod h1:el/lH6ed/1BN1FvEXlptiib7q
 github.com/submariner-io/shipyard v0.12.0-m3.0.20220217165059-b87e9080b8d1/go.mod h1:i3KjrLOHgG1uL+OeYolFNV1BmaOGlh2jEMQfNKtXOAo=
 github.com/submariner-io/shipyard v0.12.0-m3.0.20220317174712-65b179ba2961 h1:s3524F7xJf13OXfXY+hNt0j2zyDzCULI1j38MS4bdF8=
 github.com/submariner-io/shipyard v0.12.0-m3.0.20220317174712-65b179ba2961/go.mod h1:i3KjrLOHgG1uL+OeYolFNV1BmaOGlh2jEMQfNKtXOAo=
-github.com/submariner-io/submariner v0.12.0-m3.0.20220315142604-5e67af228799 h1:zd8h5KfORB8vwNoVhOOM38j6xxkYLhUhoMbN5iw4moM=
-github.com/submariner-io/submariner v0.12.0-m3.0.20220315142604-5e67af228799/go.mod h1:bPvaBxns9xmA8PM+OUT/DYMgwR6efLjle1M+XzMWCLc=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/thanos-io/thanos v0.11.0/go.mod h1:N/Yes7J68KqvmY+xM6J5CJqEvWIvKSR5sqGtmuD6wDc=

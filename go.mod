@@ -72,3 +72,5 @@ replace (
 	k8s.io/cloud-provider => k8s.io/cloud-provider v0.19.10
 	sigs.k8s.io/controller-runtime => sigs.k8s.io/controller-runtime v0.7.0
 )
+
+replace github.com/submariner-io/submariner => github.com/billy99/submariner v0.12.0-m1.0.20220330162056-603344f69bce
