@@ -445,6 +445,10 @@ spec:
                                 items:
                                   type: string
                                 type: array
+                              allocated_ips:
+                                items:
+                                  type: string
+                                type: array
                             required:
                             - backend
                             - cable_name
@@ -454,6 +458,7 @@ spec:
                             - private_ip
                             - public_ip
                             - subnets
+                            - allocated_ips
                             type: object
                           latencyRTT:
                             description: LatencySpec describes the round trip time
@@ -515,6 +520,10 @@ spec:
                           items:
                             type: string
                           type: array
+                        allocated_ips:
+                          items:
+                            type: string
+                          type: array
                       required:
                       - backend
                       - cable_name
@@ -524,6 +533,7 @@ spec:
                       - private_ip
                       - public_ip
                       - subnets
+                      - allocated_ips
                       type: object
                     statusFailure:
                       type: string
@@ -1169,6 +1179,10 @@ spec:
                 items:
                   type: string
                 type: array
+              allocated_ips:
+                items:
+                  type: string
+                type: array
             required:
             - backend
             - cable_name
@@ -1178,6 +1192,7 @@ spec:
             - private_ip
             - public_ip
             - subnets
+            - allocated_ips
             type: object
         required:
         - spec
@@ -1263,6 +1278,10 @@ spec:
                           items:
                             type: string
                           type: array
+                        allocated_ips:
+                          items:
+                            type: string
+                          type: array
                       required:
                       - backend
                       - cable_name
@@ -1272,6 +1291,7 @@ spec:
                       - private_ip
                       - public_ip
                       - subnets
+                      - allocated_ips
                       type: object
                     latencyRTT:
                       description: LatencySpec describes the round trip time information
@@ -1332,6 +1352,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  allocated_ips:
+                    items:
+                      type: string
+                    type: array
                 required:
                 - backend
                 - cable_name
@@ -1341,6 +1365,7 @@ spec:
                 - private_ip
                 - public_ip
                 - subnets
+                - allocated_ips
                 type: object
               statusFailure:
                 type: string
