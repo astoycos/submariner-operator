@@ -53,6 +53,20 @@ rules:
   - apiGroups:
       - submariner.io
     resources:
+      - clusterglobalegressips
+      - globalegressips
+      - globalingressips
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+      - update
+      - delete
+      - deletecollection
+  - apiGroups:
+      - submariner.io
+    resources:
       - endpoints
       - gateways
       - clusters
@@ -60,3 +74,17 @@ rules:
       - get
       - list
       - watch
+  - apiGroups:
+      - submariner.io
+    resources:
+      - clusterglobalegressips
+      - globalegressips
+      - globalingressips
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+      - update
+      - delete
+      - deletecollection

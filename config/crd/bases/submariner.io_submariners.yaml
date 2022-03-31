@@ -108,6 +108,8 @@ spec:
                 type: object
               loadBalancerEnabled:
                 type: boolean
+              multiActiveGatewayEnabled:
+                type: boolean
               namespace:
                 type: string
               natEnabled:
@@ -125,8 +127,6 @@ spec:
             - brokerK8sApiServer
             - brokerK8sRemoteNamespace
             - ceIPSecDebug
-            - ceIPSecPSK
-            - ceIPSecPSKSecret
             - clusterCIDR
             - clusterID
             - debug

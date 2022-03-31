@@ -2391,7 +2391,20 @@ rules:
       - get
       - list
       - watch
-`
+  - apiGroups:
+      - submariner.io
+    resources:
+      - clusterglobalegressips
+      - globalegressips
+      - globalingressips
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+      - update
+      - delete
+      - deletecollection`
 	Config_rbac_submariner_gateway_cluster_role_binding_yaml = `---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
