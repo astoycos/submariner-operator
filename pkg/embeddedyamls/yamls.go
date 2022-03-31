@@ -419,6 +419,11 @@ spec:
                         properties:
                           endpoint:
                             properties:
+                              allocated_ips:
+                                description: The list of allocated ClusterGlobaEgresslIPs.
+                                items:
+                                  type: string
+                                type: array
                               backend:
                                 type: string
                               backend_config:
@@ -445,10 +450,6 @@ spec:
                                 items:
                                   type: string
                                 type: array
-                              allocated_ips:
-                                items:
-                                  type: string
-                                type: array
                             required:
                             - backend
                             - cable_name
@@ -458,7 +459,6 @@ spec:
                             - private_ip
                             - public_ip
                             - subnets
-                            - allocated_ips
                             type: object
                           latencyRTT:
                             description: LatencySpec describes the round trip time
@@ -494,6 +494,11 @@ spec:
                       type: string
                     localEndpoint:
                       properties:
+                        allocated_ips:
+                          description: The list of allocated ClusterGlobaEgresslIPs.
+                          items:
+                            type: string
+                          type: array
                         backend:
                           type: string
                         backend_config:
@@ -520,10 +525,6 @@ spec:
                           items:
                             type: string
                           type: array
-                        allocated_ips:
-                          items:
-                            type: string
-                          type: array
                       required:
                       - backend
                       - cable_name
@@ -533,7 +534,6 @@ spec:
                       - private_ip
                       - public_ip
                       - subnets
-                      - allocated_ips
                       type: object
                     statusFailure:
                       type: string
@@ -1153,6 +1153,11 @@ spec:
             type: object
           spec:
             properties:
+              allocated_ips:
+                description: The list of allocated ClusterGlobaEgresslIPs.
+                items:
+                  type: string
+                type: array
               backend:
                 type: string
               backend_config:
@@ -1179,10 +1184,6 @@ spec:
                 items:
                   type: string
                 type: array
-              allocated_ips:
-                items:
-                  type: string
-                type: array
             required:
             - backend
             - cable_name
@@ -1192,7 +1193,6 @@ spec:
             - private_ip
             - public_ip
             - subnets
-            - allocated_ips
             type: object
         required:
         - spec
@@ -1252,6 +1252,11 @@ spec:
                   properties:
                     endpoint:
                       properties:
+                        allocated_ips:
+                          description: The list of allocated ClusterGlobaEgresslIPs.
+                          items:
+                            type: string
+                          type: array
                         backend:
                           type: string
                         backend_config:
@@ -1278,10 +1283,6 @@ spec:
                           items:
                             type: string
                           type: array
-                        allocated_ips:
-                          items:
-                            type: string
-                          type: array
                       required:
                       - backend
                       - cable_name
@@ -1291,7 +1292,6 @@ spec:
                       - private_ip
                       - public_ip
                       - subnets
-                      - allocated_ips
                       type: object
                     latencyRTT:
                       description: LatencySpec describes the round trip time information
@@ -1326,6 +1326,11 @@ spec:
                 type: string
               localEndpoint:
                 properties:
+                  allocated_ips:
+                    description: The list of allocated ClusterGlobaEgresslIPs.
+                    items:
+                      type: string
+                    type: array
                   backend:
                     type: string
                   backend_config:
@@ -1352,10 +1357,6 @@ spec:
                     items:
                       type: string
                     type: array
-                  allocated_ips:
-                    items:
-                      type: string
-                    type: array
                 required:
                 - backend
                 - cable_name
@@ -1365,7 +1366,6 @@ spec:
                 - private_ip
                 - public_ip
                 - subnets
-                - allocated_ips
                 type: object
               statusFailure:
                 type: string
@@ -2406,6 +2406,20 @@ rules:
     verbs:
       - get
       - list
+  - apiGroups:
+      - submariner.io
+    resources:
+      - clusterglobalegressips
+      - globalegressips
+      - globalingressips
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+      - update
+      - delete
+      - deletecollection
   - apiGroups:
       - submariner.io
     resources:
