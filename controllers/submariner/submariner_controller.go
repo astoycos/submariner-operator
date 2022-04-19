@@ -75,6 +75,8 @@ type Config struct {
 	SubmClient     submarinerclientset.Interface
 	DynClient      dynamic.Interface
 	ClusterNetwork *network.ClusterNetwork
+	// Flag to track if Globalnet DaemonSet has been deleted (now a Deployment).
+	GlobalNetDSDel bool
 }
 
 // Reconciler reconciles a Submariner object.
@@ -180,10 +182,8 @@ func (r *Reconciler) Reconcile(ctx context.Context, request reconcile.Request) (
 		return reconcile.Result{}, err
 	}
 
-	var globalnetDaemonSet *appsv1.DaemonSet
-
 	if instance.Spec.GlobalCIDR != "" {
-		if globalnetDaemonSet, err = r.reconcileGlobalnetDaemonSet(instance, reqLogger); err != nil {
+		if _, err = r.reconcileGlobalnetDeployment(ctx, instance, reqLogger); err != nil {
 			return reconcile.Result{}, err
 		}
 	}
@@ -225,12 +225,13 @@ func (r *Reconciler) Reconcile(ctx context.Context, request reconcile.Request) (
 		return reconcile.Result{}, err
 	}
 
-	err = updateDaemonSetStatus(ctx, r.config.Client, globalnetDaemonSet, &instance.Status.GlobalnetDaemonSetStatus, request.Namespace)
-	if err != nil {
-		reqLogger.Error(err, "failed to check gateway daemonset containers")
+	// BILLY: Revisit
+	// err = updateDaemonSetStatus(ctx, r.config.Client, globalnetDaemonSet, &instance.Status.GlobalnetDaemonSetStatus, request.Namespace)
+	// if err != nil {
+	// 	reqLogger.Error(err, "failed to check gateway daemonset containers")
 
-		return reconcile.Result{}, err
-	}
+	// 	return reconcile.Result{}, err
+	// }
 
 	if loadBalancer != nil {
 		instance.Status.LoadBalancerStatus.Status = &loadBalancer.Status.LoadBalancer
