@@ -35,7 +35,7 @@ require (
 	github.com/submariner-io/admiral v0.12.0-m3.0.20220406154101-7826e6bf396a
 	github.com/submariner-io/cloud-prepare v0.12.0-m3.0.20220407095330-513eb51af266
 	github.com/submariner-io/lighthouse v0.12.0-m3.0.20220317134734-8b52d23bc039
-	github.com/submariner-io/shipyard v0.12.0-m3.0.20220331182018-8cbbe6ce11bd
+	github.com/submariner-io/shipyard v0.12.0-m3.0.20220428150939-1bcd83a05172
 	github.com/submariner-io/submariner v0.12.0-m3.0.20220315142604-5e67af228799
 	github.com/ulikunitz/xz v0.5.10 // indirect
 	github.com/uw-labs/lichen v0.1.5
@@ -70,4 +70,4 @@ replace (
 	sigs.k8s.io/controller-runtime => sigs.k8s.io/controller-runtime v0.9.0
 )
 
-replace github.com/submariner-io/submariner => github.com/astoycos/submariner v0.12.0-m1.0.20220418181219-34b0ff812828
+replace github.com/submariner-io/submariner => github.com/astoycos/submariner v0.12.0-m1.0.20220428190843-8a2fdf4866e3
